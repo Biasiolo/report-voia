@@ -32,6 +32,8 @@ const platforms = [
 
             { id: 'insta_analise_mensal', label: 'Relatório mensal enviado com métricas e insights', done: false },
             { id: 'insta_otimizacoes', label: 'Ajustes realizados com base nos dados', done: false },
+
+            { id: 'insta_captacao', label: 'Captação', done: false },
         ],
     },
 
