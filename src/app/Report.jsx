@@ -52,16 +52,37 @@ export default function Report() {
         </header>
 
         <div ref={reportRef} className="space-y-8">
-          <section className="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 ">
-            <div className='flex flex-row  justify-start items-center'>
-            <BsFillClipboard2CheckFill className="text-2xl font-semibold bg-gradient-to-br from-teal-200 via-gray-100 to-purple-200 text-teal-500 rounded-lg p-1 mb-2 mr-2"/>
-                <h2 className="text-xl font-bold text-gray-900 mb-2"> Dados do Cliente</h2>
-            </div>
-            <p><strong>Nome:</strong> {client.name}</p>
-            <p><strong>Empresa:</strong> {client.company}</p>
-            <p><strong>Email:</strong> {client.email}</p>
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Dados do Cliente */}
+            <section className="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 w-full md:w-1/2">
+              <div className='flex flex-row justify-start items-center'>
+                <BsFillClipboard2CheckFill className="text-2xl font-semibold bg-gradient-to-br from-teal-200 via-gray-100 to-purple-200 text-teal-500 rounded-lg p-1 mb-2 mr-2" />
+                <h2 className="text-xl font-bold text-gray-900 mb-2">Dados do Cliente</h2>
+              </div>
+              <p><strong>Nome:</strong> {client.name}</p>
+              <p><strong>Empresa:</strong> {client.company}</p>
+              <p><strong>Email:</strong> {client.email}</p>
+            </section>
 
-          </section>
+            {/* Resumo do Projeto */}
+            <section className="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 w-full md:w-1/2">
+              <div className="flex flex-row justify-start items-center">
+                <BsFillClipboard2CheckFill className="text-2xl font-semibold bg-gradient-to-br from-green-200 via-teal-100 to-emerald-200 text-teal-600 rounded-lg p-1 mb-2 mr-2" />
+                <h2 className="text-xl font-bold text-gray-900 mb-2">Resumo do Relatório</h2>
+              </div>
+              <p className="text-gray-800"><strong>Plataformas analisadas:</strong> {selectedPlatforms.length}</p>
+              <p className="text-gray-800">
+                <strong>Itens concluídos:</strong>{' '}
+                {
+                  selectedPlatforms.reduce((total, platformId) => {
+                    const checklist = progress[platformId] || [];
+                    return total + checklist.filter(item => item.done).length;
+                  }, 0)
+                }
+              </p>
+            </section>
+          </div>
+
 
           {selectedPlatforms.map((platformId) => {
             const platform = platforms.find(p => p.id === platformId);

@@ -33,8 +33,7 @@ const ChecklistReportPDF = () => {
     }, 100);
   }, [client, selectedPlatforms, progress, navigate]);
 
-  // Formatação da data atual
-  const formattedDate = new Date().toLocaleString('pt-BR', { 
+  const formattedDate = new Date().toLocaleString('pt-BR', {
     timeZone: 'America/Sao_Paulo',
     day: '2-digit',
     month: '2-digit',
@@ -43,190 +42,184 @@ const ChecklistReportPDF = () => {
     minute: '2-digit'
   });
 
-  // Calculando o progresso geral
-  const calculateOverallProgress = () => {
-    let totalItems = 0;
+  const calculateCompletedItems = () => {
     let completedItems = 0;
-
     selectedPlatforms.forEach(platformId => {
       const checklist = progress[platformId];
       if (checklist) {
-        totalItems += checklist.length;
         completedItems += checklist.filter(item => item.done).length;
       }
     });
-
-    return totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+    return completedItems;
   };
 
-  const overallProgress = calculateOverallProgress();
+  const totalCompleted = calculateCompletedItems();
 
   return (
     <div
-      ref={printRef}
-      style={{
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '12px',
-        lineHeight: '1.6',
-        color: '#334155',
-        backgroundColor: '#ffffff',
-        padding: '40px',
-        boxSizing: 'border-box',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <div style={{ width: '100%', maxWidth: '800px' }}>
-        {/* Cabeçalho */}
-        <header style={{
-          padding: '25px 30px',
-          backgroundColor: '#0d9488',
-          color: 'white',
-          borderRadius: '12px',
-          marginBottom: '36px',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-          backgroundImage: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
+    ref={printRef}
+    style={{
+      fontFamily: '"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '12px',
+      lineHeight: '1.6',
+      color: '#1e293b',
+      backgroundColor: '#ffffff',
+      padding: '40px',
+      boxSizing: 'border-box',
+      display: 'flex',
+      justifyContent: 'center',
+    }}
+  >
+    <div style={{ width: '100%', maxWidth: '800px' }}>
+      <header style={{
+        padding: '30px 36px',
+        backgroundColor: '#0891b2',
+        color: 'white',
+        borderRadius: '16px',
+        marginBottom: '40px',
+        boxShadow: '0 10px 25px rgba(8, 145, 178, 0.2)',
+        backgroundImage: 'linear-gradient(135deg, #0891b2 0%, #0e7490 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          background: 'radial-gradient(circle at top right, rgba(255,255,255,0.12) 0%, transparent 70%)',
+          zIndex: '1',
+        }}></div>
+        
+        <div style={{
+          position: 'absolute',
+          top: '-20px',
+          right: '-20px',
+          width: '150px',
+          height: '150px',
+          borderRadius: '75px',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
+          zIndex: '1',
+        }}></div>
+
+        <h1 style={{
+          fontSize: '32px',
+          fontWeight: '800',
+          marginBottom: '14px',
           position: 'relative',
-          overflow: 'hidden',
+          textAlign: 'center',
+          letterSpacing: '0.5px',
+          zIndex: '2',
+          textShadow: '0 2px 4px rgba(0,0,0,0.1)'
         }}>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            background: 'radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 60%)',
-          }}></div>
-          
-          <h1 style={{
-            fontSize: '28px',
-            fontWeight: 'bold',
-            marginBottom: '10px',
-            position: 'relative',
-            textAlign: 'center'
-          }}>
-            Relatório de Checklist de Marketing
-          </h1>
-          
-          <div style={{
-            fontSize: '12px',
-            opacity: '0.9',
-            position: 'relative',
-          }}>
-            Gerado em: {formattedDate}
-          </div>
-        </header>
+          Relatório Checklist de Marketing
+        </h1>
 
-        {/* Dados do Cliente e Resumo */}
         <div style={{
-          display: 'flex',
-          gap: '24px',
-          marginBottom: '36px',
-          flexWrap: 'wrap',
+          fontSize: '13px',
+          opacity: '0.95',
+          position: 'relative',
+          textAlign: 'center',
+          fontWeight: '500',
+          letterSpacing: '0.3px',
+          zIndex: '2',
         }}>
-          {/* Dados do Cliente */}
-          <section style={{
-            flex: '1',
-            minWidth: '300px',
-            backgroundColor: '#f8fafc',
-            padding: '24px',
-            borderRadius: '12px',
-            borderLeft: '5px solid #0d9488',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.06)',
-          }}>
-            <h2 style={{
-              fontSize: '15px',
-              fontWeight: 'bold',
-              color: '#0f766e',
-              marginBottom: '16px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-              borderBottom: '1px solid #e2e8f0',
-              paddingBottom: '8px',
-            }}>
-              📋 Dados do Cliente
-            </h2>
-            <p style={{ marginBottom: '8px' }}><strong style={{ color: '#334155' }}>Nome:</strong> {client.name}</p>
-            <p style={{ marginBottom: '8px' }}><strong style={{ color: '#334155' }}>Empresa:</strong> {client.company}</p>
-            <p><strong style={{ color: '#334155' }}>Email:</strong> {client.email}</p>
-          </section>
-
-          {/* Resumo do Progresso */}
-          <section style={{
-            flex: '1',
-            minWidth: '300px',
-            backgroundColor: '#f0fdfa',
-            padding: '24px',
-            borderRadius: '12px',
-            borderLeft: '5px solid #14b8a6',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.06)',
-          }}>
-            <h2 style={{
-              fontSize: '15px',
-              fontWeight: 'bold',
-              color: '#0f766e',
-              marginBottom: '16px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-              borderBottom: '1px solid #e2e8f0',
-              paddingBottom: '8px',
-            }}>
-              📊 Resumo do Checklist
-            </h2>
-            <p style={{ marginBottom: '8px' }}><strong style={{ color: '#334155' }}>Plataformas analisadas:</strong> {selectedPlatforms.length}</p>
-            <p style={{ marginBottom: '12px' }}><strong style={{ color: '#334155' }}>Progresso geral:</strong> {overallProgress}%</p>
-            
-            {/* Barra de progresso */}
-            <div style={{ 
-              height: '10px', 
-              backgroundColor: '#e2e8f0',
-              borderRadius: '5px',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                height: '100%',
-                width: `${overallProgress}%`,
-                backgroundColor: '#14b8a6',
-                borderRadius: '5px',
-              }}></div>
-            </div>
-          </section>
+          Gerado em: {formattedDate}
         </div>
+      </header>
 
-        {/* Título da Seção de Plataformas */}
-        <div style={{
-          backgroundColor: '#f1f5f9',
-          padding: '15px 20px',
-          borderRadius: '8px',
-          marginBottom: '24px',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
-          borderLeft: '4px solid #475569',
+      <div style={{
+        display: 'flex',
+        gap: '28px',
+        marginBottom: '40px',
+        flexWrap: 'wrap',
+      }}>
+        <section style={{
+          flex: '1',
+          minWidth: '300px',
+          backgroundColor: '#fcfcfc',
+          padding: '28px',
+          borderRadius: '14px',
+          borderLeft: '6px solid #0891b2',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05)',
         }}>
           <h2 style={{
             fontSize: '16px',
-            fontWeight: 'bold',
-            color: '#334155',
-            margin: 0,
-            alignItems: 'center'
+            fontWeight: '700',
+            color: '#0e7490',
+            marginBottom: '18px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.7px',
+            borderBottom: '1px solid #e2e8f0',
+            paddingBottom: '10px',
           }}>
-            Resultados por Plataforma
+            Dados do Cliente
           </h2>
-        </div>
+          <p style={{ marginBottom: '10px', fontSize: '13px' }}><strong style={{ color: '#334155', fontWeight: '600' }}>Nome:</strong> {client.name}</p>
+          <p style={{ marginBottom: '10px', fontSize: '13px' }}><strong style={{ color: '#334155', fontWeight: '600' }}>Empresa:</strong> {client.company}</p>
+          <p style={{ fontSize: '13px' }}><strong style={{ color: '#334155', fontWeight: '600' }}>Email:</strong> {client.email}</p>
+        </section>
 
-        {/* Plataformas */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '24px',
+        <section style={{
+          flex: '1',
+          minWidth: '300px',
+          backgroundColor: '#fcfcfc',
+          padding: '28px',
+          borderRadius: '14px',
+          borderLeft: '6px solid #10b981',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05)',
         }}>
+          <h2 style={{
+            fontSize: '16px',
+            fontWeight: '700',
+            color: '#059669',
+            marginBottom: '18px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.7px',
+            borderBottom: '1px solid #d1fae5',
+            paddingBottom: '10px',
+          }}>
+            Resumo do Relatório
+          </h2>
+          <p style={{ marginBottom: '10px', fontSize: '13px' }}><strong style={{ color: '#334155', fontWeight: '600' }}>Plataformas analisadas:</strong> {selectedPlatforms.length}</p>
+          <p style={{ marginBottom: '10px', fontSize: '13px' }}><strong style={{ color: '#334155', fontWeight: '600' }}>Itens concluídos:</strong> {totalCompleted}</p>
+          <div style={{ marginTop: '15px', padding: '10px 0' }}>
+            
+            
+          </div>
+        </section>
+      </div>
+
+      <div style={{
+        backgroundColor: '#f8fafc',
+        padding: '18px 24px',
+        borderRadius: '10px',
+        marginBottom: '28px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.03)',
+        borderLeft: '5px solid #0891b2',
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        
+        <h2 style={{
+          fontSize: '17px',
+          fontWeight: '700',
+          color: '#0e7490',
+          margin: 0,
+          letterSpacing: '0.3px',
+        }}>
+          Resultados por Plataforma
+        </h2>
+      </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {selectedPlatforms.map((platformId) => {
             const platform = platforms.find(p => p.id === platformId);
             const checklist = progress[platformId];
             const note = observations?.[platformId];
 
             if (!platform || !checklist) return null;
-
-            // Filtrar apenas itens concluídos
             const completedItems = checklist.filter(item => item.done);
 
             return (
@@ -237,7 +230,6 @@ const ChecklistReportPDF = () => {
                 backgroundColor: '#ffffff',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.04)',
               }}>
-                {/* Cabeçalho da plataforma - sem progresso */}
                 <div style={{
                   padding: '16px 24px',
                   backgroundColor: '#f8fafc',
@@ -253,53 +245,23 @@ const ChecklistReportPDF = () => {
                   </h3>
                 </div>
 
-                {/* Corpo da plataforma */}
-                <div style={{
-                  padding: '20px 24px',
-                }}>
-                  {/* Apenas itens completos */}
+                <div style={{ padding: '20px 24px' }}>
                   {completedItems.length > 0 && (
-                    <div style={{
-                      marginBottom: '16px',
-                    }}>
-                      <h4 style={{
-                        fontSize: '14px',
-                        color: '#475569',
-                        marginBottom: '12px',
-                        fontWeight: 'bold',
-                      }}>
+                    <div style={{ marginBottom: '16px' }}>
+                      <h4 style={{ fontSize: '14px', color: '#475569', marginBottom: '12px', fontWeight: 'bold' }}>
                         Itens Realizados
                       </h4>
-                      <ul style={{
-                        paddingLeft: '16px',
-                        marginBottom: '12px',
-                        listStyle: 'none',
-                      }}>
+                      <ul style={{ paddingLeft: '16px', marginBottom: '12px', listStyle: 'none' }}>
                         {completedItems.map(item => (
-                          <li key={item.id} style={{
-                            marginBottom: '8px',
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '8px'
-                          }}>
-                            <span style={{
-                              color: '#10b981',
-                              fontWeight: 'bold',
-                              fontSize: '14px',
-                              minWidth: '16px',
-                              lineHeight: '1.4',
-                            }}>✓</span>
-                            <span style={{
-                              fontSize: '13px',
-                              color: '#334155'
-                            }}>{item.label}</span>
+                          <li key={item.id} style={{ marginBottom: '8px', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                            <span style={{ color: '#10b981', fontWeight: 'bold', fontSize: '14px', minWidth: '16px', lineHeight: '1.4' }}>✓</span>
+                            <span style={{ fontSize: '13px', color: '#334155' }}>{item.label}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
 
-                  {/* Observações */}
                   {note && note.trim() !== '' && (
                     <div style={{
                       padding: '16px',
@@ -320,7 +282,6 @@ const ChecklistReportPDF = () => {
           })}
         </div>
 
-        {/* Rodapé */}
         <footer style={{
           marginTop: '60px',
           fontSize: '11px',
@@ -334,12 +295,9 @@ const ChecklistReportPDF = () => {
           gap: '10px',
         }}>
           <div>
-            © {new Date().getFullYear()} - Relatório de Checklist de Marketing - Voia Agency
+            © {new Date().getFullYear()} - Relatório Checklist de Marketing - Voia Agency
           </div>
-          <div style={{
-            fontSize: '10px',
-            color: '#94a3b8',
-          }}>
+          <div style={{ fontSize: '10px', color: '#94a3b8' }}>
             Este relatório é confidencial e foi gerado automaticamente.
           </div>
         </footer>

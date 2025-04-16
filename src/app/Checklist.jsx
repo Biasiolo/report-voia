@@ -61,39 +61,36 @@ export default function Checklist() {
                     {platform?.name || platformId}
                   </h2>
     
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 font-semibold gap-6 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+
                     {items.map((item) => (
                       <label
-                        key={item.id}
-                        className={`relative overflow-hidden group rounded-3xl p-4 cursor-pointer flex items-center gap-3 transition-all duration-300 ease-in-out border
+                      key={item.id}
+                      className={`relative overflow-hidden group rounded-2xl p-3 cursor-pointer flex items-start gap-2 text-sm text-semibold transition-all duration-300 ease-in-out border
+                        ${item.done
+                          ? 'bg-gradient-to-r from-zinc-100 via-stone-100 to-gray-200 shadow-sm border-0'
+                          : 'bg-neutral-50 border-0 hover:border-teal-400 shadow-md shadow-stone-300'}
+                      `}
+                    >
+                      <div
+                        className={`absolute left-0 top-0 h-full w-1
                           ${item.done
-                            ? 'bg-gradient-to-r from-zinc-100 via-stone-100 to-gray-200 shadow-sm border-0'
-                            : 'bg-neutral-50 border-0 hover:border-teal-400 shadow-md shadow-stone-300'}
-                        `}
-                      >
-                        <div
-                          className={`absolute left-0 top-0 h-full w-1
-                            ${item.done
-                              ? 'bg-gradient-to-b from-orange-600 via-teal-500 to-purple-500'
-                              : 'bg-transparent'}
-                          transition-all duration-300`}
-                        ></div>
-    
-                        <input
-                          type="checkbox"
-                          checked={item.done}
-                          onChange={() => handleToggle(platformId, item.id)}
-                          className="accent-teal-200 w-5 h-5"
-                        />
-    
-                        <span
-                          className={`text-gray-800 ${
-                            item.done ? 'line-through text-gray-500' : ''
-                          }`}
-                        >
-                          {item.label}
-                        </span>
-                      </label>
+                            ? 'bg-gradient-to-b from-orange-600 via-teal-500 to-purple-500'
+                            : 'bg-transparent'}
+                        transition-all duration-300`}
+                      ></div>
+                    
+                      <input
+                        type="checkbox"
+                        checked={item.done}
+                        onChange={() => handleToggle(platformId, item.id)}
+                        className="accent-teal-500 w-4 h-4 mt-1"
+                      />
+                    
+                      <span className={`text-gray-800 ${item.done ? 'line-through text-gray-500' : ''}`}>
+                        {item.label}
+                      </span>
+                    </label>
                     ))}
                   </div>
     
