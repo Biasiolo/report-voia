@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black px-4 py-12">
-      <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl p-10">
+      <div className="w-full max-w-xl bg-zinc-100 rounded-3xl shadow-xl p-10">
         <header className="mb-8 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-b from-teal-900 to-teal-800 bg-clip-text text-transparent">
             Cadastro do Cliente
@@ -69,26 +69,16 @@ export default function Home() {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full  bg-white rounded-xl border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-            <input
-              type="tel"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              required
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-          </div>
+
 
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full rounded-xl px-6 py-3 font-semibold text-white bg-teal-500 hover:bg-teal-800 cursor-pointer transition-all shadow-md"
+              className="w-full rounded-xl px-6 py-3 font-semibold text-white bg-teal-500 hover:bg-teal-400 hover:text-teal-800 cursor-pointer transition-all shadow-md"
             >
               Avançar
             </button>
