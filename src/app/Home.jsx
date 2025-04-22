@@ -29,7 +29,7 @@ export default function Home() {
       <div className="w-full max-w-xl bg-zinc-100 rounded-3xl shadow-xl p-10">
         <header className="mb-8 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-b from-teal-900 to-teal-800 bg-clip-text text-transparent">
-            Cadastro do Cliente
+            Checklist Generator
           </h1>
           <p className="text-gray-500 mt-2 text-sm">
             Preencha os dados para iniciar seu checklist personalizado
@@ -38,7 +38,7 @@ export default function Home() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Nome ou Campanha</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Nome do Responsável</label>
             <input
               type="text"
               name="name"
@@ -50,7 +50,7 @@ export default function Home() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Cliente</label>
             <input
               type="text"
               name="company"

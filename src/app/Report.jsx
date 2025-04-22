@@ -59,8 +59,8 @@ export default function Report() {
                 <BsFillClipboard2CheckFill className="text-2xl font-semibold bg-gradient-to-br from-teal-200 via-gray-100 to-purple-200 text-teal-500 rounded-lg p-1 mb-2 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900 mb-2">Dados do Cliente</h2>
               </div>
-              <p><strong>Nome:</strong> {client.name}</p>
-              <p><strong>Empresa:</strong> {client.company}</p>
+              <p><strong>Responsável:</strong> {client.name}</p>
+              <p><strong>Cliente:</strong> {client.company}</p>
               <p><strong>Email:</strong> {client.email}</p>
             </section>
 

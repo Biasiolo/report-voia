@@ -1,8 +1,41 @@
-import { FaInstagram, FaFacebookF, FaTiktok, FaLinkedinIn, FaLink, FaPalette } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaTiktok, FaLinkedinIn, FaLink, FaClipboardList } from 'react-icons/fa';
 import { SiGooglestreetview, SiGoogleads } from 'react-icons/si';
 import { MdWeb } from 'react-icons/md';
 
 const platforms = [
+    {
+        id: 'entrada_cliente',
+        name: 'Entrada de Cliente',
+        icon: FaClipboardList, // você pode importar esse ícone do react-icons/fa
+        checklist: [
+          // IDENTIDADE VISUAL
+          { id: 'entrada_logo', label: 'Logo em alta resolução (PNG ou SVG)', done: false },
+          { id: 'entrada_identidade_social', label: 'Identidade aplicada nas redes sociais', done: false },
+          { id: 'entrada_visual', label: 'Identidade Visual', done: false },
+          { id: 'entrada_tipografia', label: 'Tipografia definida', done: false },
+      
+          // CONTRATAÇÕES
+          { id: 'entrada_trafego', label: 'Gestão de Tráfego Pago contratada', done: false },
+          { id: 'entrada_social_media', label: 'Gestão de Redes Sociais contratada', done: false },
+          { id: 'entrada_logomarca', label: 'Desenvolvimento de Logomarca contratado', done: false },
+          { id: 'entrada_site', label: 'Desenvolvimento de Site contratado', done: false },
+          { id: 'entrada_ecommerce', label: 'E-commerce contratado', done: false },
+          { id: 'entrada_google_meu_negocio', label: 'Google Meu Negócio contratado', done: false },
+      
+          // DOCUMENTOS E DADOS
+          { id: 'entrada_formulario_briefing', label: 'Briefing preenchido pelo cliente', done: false },
+          { id: 'entrada_arquivos', label: 'Materiais/arquivos recebidos do cliente', done: false },
+          { id: 'entrada_acesso_redes', label: 'Acessos de redes sociais recebidos', done: false },
+          { id: 'entrada_acesso_google', label: 'Acesso ao Google Ads / Analytics / Tag Manager', done: false },
+          { id: 'entrada_outros_acessos', label: 'Outros acessos relevantes (hospedagem, painel de domínio, etc)', done: false },
+      
+          // ORGANIZAÇÃO INTERNA
+          { id: 'entrada_pasta_drive', label: 'Pasta de cliente criada e organizada', done: false },
+          { id: 'entrada_nome_projeto', label: 'Nome interno do projeto definido', done: false },
+          { id: 'entrada_responsavel_conta', label: 'Responsável interno atribuído', done: false },
+        ],
+      },
+      
     {
         id: 'instagram',
         name: 'Instagram',
@@ -243,27 +276,7 @@ const platforms = [
             { id: 'web_backup', label: 'Backup automático configurado (se aplicável)', done: false },
         ],
     },
-    {
-        id: 'branding',
-        name: 'Branding',
-        icon: FaPalette,
-        checklist: [
-
-            { id: 'branding_logo_alta', label: 'Logo em alta resolução (PNG/SVG)', done: false },
-            { id: 'branding_logo_h', label: 'Versão horizontal do logo', done: false },
-            { id: 'branding_logo_v', label: 'Versão vertical do logo', done: false },
-            { id: 'branding_variacoes', label: 'Variações em branco, preto e colorido', done: false },
-            { id: 'branding_paleta', label: 'Paleta de cores definida', done: false },
-            { id: 'branding_tipografia', label: 'Tipografia principal e secundária definida', done: false },
-
-            { id: 'branding_manual', label: 'Manual de marca desenvolvido', done: false },
-            { id: 'branding_aplicacoes', label: 'Exemplos de aplicação (social, impressos, etc)', done: false },
-
-            { id: 'branding_social_aplicada', label: 'Identidade aplicada em redes sociais', done: false },
-            { id: 'branding_modelos', label: 'Mockups ou modelos visuais entregues', done: false },
-            { id: 'branding_pasta_organizada', label: 'Arquivos organizados para entrega ao cliente', done: false },
-        ],
-    },
+    
 
 
 ];

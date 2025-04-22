@@ -20,7 +20,7 @@ const ChecklistReportPDF = () => {
       const element = printRef.current;
       const opt = {
         margin: 1,
-        filename: `Checklist_${client.name || 'cliente'}.pdf`,
+        filename: `Checklist_${client.company || 'cliente'}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' },
@@ -93,10 +93,10 @@ const ChecklistReportPDF = () => {
             paddingBottom: '6px',
             color: '#0f766e',
           }}>
-            📋 Dados do Cliente
+            📋 Informações Gerais
           </h2>
-          <p><strong>Nome:</strong> {client.name}</p>
-          <p><strong>Empresa:</strong> {client.company}</p>
+          <p><strong>Responsável:</strong> {client.name}</p>
+          <p><strong>Cliente:</strong> {client.company}</p>
           <p><strong>Email:</strong> {client.email}</p>
         </div>
 
@@ -205,7 +205,7 @@ const ChecklistReportPDF = () => {
             © {new Date().getFullYear()} - Relatório Checklist de Marketing - Voia Agency
           </div>
           <div style={{ fontSize: '10px', color: '#808894' }}>
-            Este relatório é confidencial e foi gerado automaticamente.
+            Este relatório é confidencial e foi gerado automaticamente por {client.name}.
           </div>
       </footer>
     </div>
