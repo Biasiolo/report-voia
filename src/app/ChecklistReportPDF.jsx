@@ -118,7 +118,15 @@ const ChecklistReportPDF = () => {
           }}>
             📌 Resumo do Relatório
           </h2>
+          <p>
+            <strong>Tipo Checklist:</strong>{' '}
+            {selectedPlatforms
+              .map((id) => platforms.find((p) => p.id === id)?.name)
+              .filter(Boolean)
+              .join(', ')}
+          </p>
           <p><strong>Plataformas analisadas:</strong> {selectedPlatforms.length}</p>
+
           <p><strong>Itens concluídos:</strong> {totalCompleted}</p>
         </div>
       </div>
@@ -202,11 +210,11 @@ const ChecklistReportPDF = () => {
         marginTop: '40px'
       }}>
         <div>
-            © {new Date().getFullYear()} - Relatório Checklist de Marketing - Voia Agency
-          </div>
-          <div style={{ fontSize: '10px', color: '#808894' }}>
-            Este relatório é confidencial e foi gerado automaticamente por {client.name}.
-          </div>
+          © {new Date().getFullYear()} - Relatório Checklist de Marketing - Voia Agency
+        </div>
+        <div style={{ fontSize: '10px', color: '#808894' }}>
+          Este relatório é confidencial e foi gerado automaticamente por {client.name}.
+        </div>
       </footer>
     </div>
   );

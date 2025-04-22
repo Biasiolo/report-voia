@@ -70,7 +70,15 @@ export default function Report() {
                 <BsFillClipboard2CheckFill className="text-2xl font-semibold bg-gradient-to-br from-green-200 via-teal-100 to-emerald-200 text-teal-600 rounded-lg p-1 mb-2 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900 mb-2">Resumo do Relatório</h2>
               </div>
+              <p className="text-gray-800">
+                <strong>Tipo Checklist:</strong>{' '}
+                {selectedPlatforms
+                  .map((id) => platforms.find((p) => p.id === id)?.name)
+                  .filter(Boolean)
+                  .join(', ')}
+              </p>
               <p className="text-gray-800"><strong>Plataformas analisadas:</strong> {selectedPlatforms.length}</p>
+
               <p className="text-gray-800">
                 <strong>Itens concluídos:</strong>{' '}
                 {
