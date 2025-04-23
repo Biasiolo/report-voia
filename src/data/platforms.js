@@ -6,7 +6,7 @@ const platforms = [
     {
         id: 'entrada_cliente',
         name: 'Entrada de Cliente',
-        icon: FaClipboardList, // você pode importar esse ícone do react-icons/fa
+        icon: FaClipboardList, 
         checklist: [
           // IDENTIDADE VISUAL
           { id: 'entrada_logo', label: 'Logo em alta resolução (PNG ou SVG)', done: false },
@@ -35,6 +35,125 @@ const platforms = [
           { id: 'entrada_responsavel_conta', label: 'Responsável interno atribuído', done: false },
         ],
       },
+
+      {
+        id: 'trafego',
+        name: 'Tráfego',
+        icon: SiGoogleads,
+        checklist: [
+
+            { id: 'ads_login', label: 'Acesso às contas concedido (Google Ads / Meta Ads)', done: false },
+            { id: 'ads_tag_instalada', label: 'Tags e pixels instalados corretamente no site', done: false },
+            { id: 'ads_gtm', label: 'Google Tag Manager instalado e validado', done: false },
+            { id: 'ads_conversoes', label: 'Eventos de conversão definidos e funcionando', done: false },
+
+            { id: 'ads_conta_verificada', label: 'Contas verificadas e com formas de pagamento ativas', done: false },
+            { id: 'ads_fuso_moeda', label: 'Fuso horário e moeda ajustados corretamente', done: false },
+            { id: 'ads_estrutura', label: 'Estrutura de campanhas padronizada (campanhas, grupos, anúncios)', done: false },
+
+            { id: 'ads_públicos_criados', label: 'Públicos salvos (interesses, lookalike, personalizados)', done: false },
+            { id: 'ads_audiencias_revisadas', label: 'Audiências revisadas por etapa do funil', done: false },
+            { id: 'ads_remarketing', label: 'Listas de remarketing ativas e validadas', done: false },
+
+            { id: 'ads_objetivo_definido', label: 'Objetivos de campanha bem definidos (tráfego, conversão, leads, etc)', done: false },
+            { id: 'ads_oferta', label: 'Oferta clara e validada com o cliente', done: false },
+            { id: 'ads_copy_design', label: 'Anúncios criados com copy + criativo aprovado', done: false },
+            { id: 'ads_veiculando', label: 'Campanhas ativas e em veiculação', done: false },
+            { id: 'ads_testes_ab', label: 'Testes A/B estruturados (criativo, copy, CTA ou público)', done: false },
+
+            { id: 'ads_ajustes_semanais', label: 'Ajustes semanais baseados em desempenho', done: false },
+            { id: 'ads_roas_monitorado', label: 'ROAS / CPA monitorado por campanha', done: false },
+            { id: 'ads_orcamento_otimizado', label: 'Otimização de orçamento e alocação de verba', done: false },
+
+            { id: 'ads_relatorio', label: 'Relatório mensal enviado com indicadores e gráficos', done: false },
+            { id: 'ads_feedback_cliente', label: 'Reunião de feedback com o cliente (mensal ou bimestral)', done: false },
+        ],
+    },
+
+    {
+        id: 'web',
+        name: 'Web',
+        icon: MdWeb,
+        checklist: [
+            // Infraestrutura
+            { id: 'web_domain', label: 'Domínio registrado e configurado corretamente', done: false },
+            { id: 'web_hosting', label: 'Hospedagem contratada e funcional', done: false },
+            { id: 'web_ssl', label: 'Certificado SSL instalado e forçando HTTPS', done: false },
+            { id: 'web_dns', label: 'DNS configurado corretamente', done: false },
+
+            // Estrutura e Funcionalidades
+            { id: 'web_plataforma', label: 'Tecnologia definida (WordPress, React, etc)', done: false },
+            { id: 'web_layout_responsivo', label: 'Layout responsivo em todos os dispositivos', done: false },
+            { id: 'web_uxui', label: 'Padrões de UX/UI aplicados (navegação, legibilidade, botões)', done: false },
+            { id: 'web_paginas_essenciais', label: 'Páginas obrigatórias criadas (Home, Sobre, Contato, Política)', done: false },
+            { id: 'web_forms', label: 'Formulários funcionando (contato, orçamento, etc)', done: false },
+            { id: 'web_redirecionamentos', label: 'Redirecionamentos e URLs amigáveis', done: false },
+
+            // E-commerce (se aplicável)
+            { id: 'web_ecommerce', label: 'Loja com produtos e categorias criadas', done: false },
+            { id: 'web_pagamentos', label: 'Pagamentos integrados (Pix, Cartão, etc)', done: false },
+            { id: 'web_entregas', label: 'Frete configurado (correios, tabela fixa ou integração)', done: false },
+
+            // Conteúdo e Identidade
+            { id: 'web_logo', label: 'Logo aplicada em todas as páginas', done: false },
+            { id: 'web_favicon', label: 'Favicon configurado', done: false },
+            { id: 'web_conteudo', label: 'Textos institucionais, serviços, blog, etc.', done: false },
+            { id: 'web_imagens', label: 'Imagens otimizadas (peso, tamanho, qualidade)', done: false },
+
+            // SEO e Performance
+            { id: 'web_seo_title', label: 'Titles e descriptions otimizados', done: false },
+            { id: 'web_seo_tags', label: 'Uso adequado de headings (H1, H2...)', done: false },
+            { id: 'web_google_search_console', label: 'Google Search Console configurado', done: false },
+            { id: 'web_google_analytics', label: 'Google Analytics ou GA4 ativo', done: false },
+            { id: 'web_performance', label: 'Site testado no PageSpeed (Desktop e Mobile)', done: false },
+
+            // Finalização e Validação
+            { id: 'web_testes_navegacao', label: 'Testes de navegação e links em todas as páginas', done: false },
+            { id: 'web_publicado', label: 'Site publicado com sucesso', done: false },
+            { id: 'web_backup', label: 'Backup automático configurado (se aplicável)', done: false },
+        ],
+    },
+    {
+        id: 'gmb',
+        name: 'Google Meu Negócio',
+        icon: SiGooglestreetview,
+        checklist: [
+          { id: 'gmb_login', label: 'Login/Senha da Conta Google', done: false },
+          { id: 'gmb_verificacao', label: 'Verificação da empresa (código ou vídeo)', done: false },
+      
+          { id: 'gmb_nome', label: 'Nome do negócio sem palavras-chave adicionais', done: false },
+          { id: 'gmb_address', label: 'Endereço completo (rua, número, cidade, estado, CEP)', done: false },
+          { id: 'gmb_area_atendimento', label: 'Área de atuação/regiões atendidas', done: false },
+          { id: 'gmb_phone', label: 'Telefone de contato atualizado (WhatsApp se aplicável)', done: false },
+          { id: 'gmb_horario', label: 'Horário de funcionamento (incluindo feriados)', done: false },
+          { id: 'gmb_site', label: 'Site oficial vinculado corretamente', done: false },
+      
+          { id: 'gmb_categoria', label: 'Categoria principal precisa e específica', done: false },
+          { id: 'gmb_subcategorias', label: 'Subcategorias relevantes (até 10)', done: false },
+          { id: 'gmb_atributos', label: 'Atributos preenchidos (ex: atend online, acessibilidade)', done: false },
+      
+          { id: 'gmb_logo', label: 'Logo em alta resolução adicionado', done: false },
+          { id: 'gmb_capa', label: 'Foto de capa com logo ou slogan', done: false },
+          { id: 'gmb_fotos_ambiente', label: 'Fotos do ambiente e equipe (mínimo 10)', done: false },
+          { id: 'gmb_fotos_servicos', label: 'Fotos de produtos, serviços e resultados', done: false },
+          { id: 'gmb_videos', label: 'Vídeos institucionais (15-30 segundos)', done: false },
+      
+          { id: 'gmb_descricao', label: 'Descrição otimizada (com até 750 caracteres e palavras-chave)', done: false },
+          { id: 'gmb_servicos', label: 'Serviços listados com descrições claras', done: false },
+      
+          { id: 'gmb_posts', label: 'Posts criados e agendados (promoções, atualizações)', done: false },
+          { id: 'gmb_qna', label: 'Perguntas e Respostas adicionadas (Q&A)', done: false },
+      
+          { id: 'gmb_review', label: 'Avaliações respondidas com cordialidade', done: false },
+          { id: 'gmb_pedidos_avaliacao', label: 'Links de avaliação enviados a clientes', done: false },
+          { id: 'gmb_monitoramento', label: 'Monitoramento de novas avaliações e comentários', done: false },
+          { id: 'gmb_modelo_resposta', label: 'Guia de resposta padrão definido', done: false },
+      
+          { id: 'gmb_metricas', label: 'Métricas de pesquisa, chamadas e visitas analisadas', done: false },
+          { id: 'gmb_relatorio', label: 'Relatório mensal de desempenho e ações', done: false },
+        ],
+      },
+      
       
     {
         id: 'instagram',
@@ -88,41 +207,6 @@ const platforms = [
             { id: 'fb_posts', label: 'Publicações recentes relevantes no feed', done: false },
             { id: 'fb_schedule', label: 'Agendamento de conteúdo no Business Suite', done: false },
 
-        ],
-    },
-
-    {
-        id: 'gmb',
-        name: 'Google Meu Negócio',
-        icon: SiGooglestreetview,
-        checklist: [
-
-            { id: 'gmb_login', label: 'Login/Senha da Conta Google', done: false },
-            { id: 'gmb_verificacao', label: 'Verificação da empresa concluída (código ou vídeo)', done: false },
-
-            { id: 'gmb_nome', label: 'Nome comercial correto e padronizado', done: false },
-            { id: 'gmb_address', label: 'Endereço completo e sem abreviações', done: false },
-            { id: 'gmb_phone', label: 'Telefone atualizado e testado', done: false },
-            { id: 'gmb_email', label: 'Email institucional configurado', done: false },
-            { id: 'gmb_site', label: 'Site ou página de destino inserido corretamente', done: false },
-            { id: 'gmb_horario', label: 'Horários de funcionamento completos', done: false },
-            { id: 'gmb_servicos', label: 'Lista de serviços cadastrada', done: false },
-            { id: 'gmb_area_atendimento', label: 'Área de atendimento definida (se aplicável)', done: false },
-
-            { id: 'gmb_logo', label: 'Logo da empresa adicionada', done: false },
-            { id: 'gmb_capa', label: 'Foto de capa (imagem principal)', done: false },
-            { id: 'gmb_fotos', label: 'Fotos de equipe, ambiente e produtos adicionadas', done: false },
-            { id: 'gmb_videos', label: 'Vídeos institucionais (se disponíveis)', done: false },
-
-            { id: 'gmb_posts', label: 'Posts criados e programados (promoções, atualizações)', done: false },
-            { id: 'gmb_respostas', label: 'Respostas a perguntas frequentes (Q&A)', done: false },
-
-            { id: 'gmb_review', label: 'Avaliações respondidas com cordialidade', done: false },
-            { id: 'gmb_pedidos_avaliacao', label: 'Pedido de avaliação enviado a clientes recentes', done: false },
-            { id: 'gmb_monitoramento', label: 'Monitoramento de novas avaliações e comentários', done: false },
-
-            { id: 'gmb_metricas', label: 'Verificação de métricas de pesquisa e chamadas', done: false },
-            { id: 'gmb_relatorio', label: 'Relatório mensal com ações e resultados', done: false },
         ],
     },
 
@@ -198,86 +282,6 @@ const platforms = [
             { id: 'linktree_google_index', label: 'Linktree indexado no perfil Google/Instagram', done: false },
         ],
     },
-
-    {
-        id: 'trafego',
-        name: 'Tráfego',
-        icon: SiGoogleads,
-        checklist: [
-
-            { id: 'ads_login', label: 'Acesso às contas concedido (Google Ads / Meta Ads)', done: false },
-            { id: 'ads_tag_instalada', label: 'Tags e pixels instalados corretamente no site', done: false },
-            { id: 'ads_gtm', label: 'Google Tag Manager instalado e validado', done: false },
-            { id: 'ads_conversoes', label: 'Eventos de conversão definidos e funcionando', done: false },
-
-            { id: 'ads_conta_verificada', label: 'Contas verificadas e com formas de pagamento ativas', done: false },
-            { id: 'ads_fuso_moeda', label: 'Fuso horário e moeda ajustados corretamente', done: false },
-            { id: 'ads_estrutura', label: 'Estrutura de campanhas padronizada (campanhas, grupos, anúncios)', done: false },
-
-            { id: 'ads_públicos_criados', label: 'Públicos salvos (interesses, lookalike, personalizados)', done: false },
-            { id: 'ads_audiencias_revisadas', label: 'Audiências revisadas por etapa do funil', done: false },
-            { id: 'ads_remarketing', label: 'Listas de remarketing ativas e validadas', done: false },
-
-            { id: 'ads_objetivo_definido', label: 'Objetivos de campanha bem definidos (tráfego, conversão, leads, etc)', done: false },
-            { id: 'ads_oferta', label: 'Oferta clara e validada com o cliente', done: false },
-            { id: 'ads_copy_design', label: 'Anúncios criados com copy + criativo aprovado', done: false },
-            { id: 'ads_veiculando', label: 'Campanhas ativas e em veiculação', done: false },
-            { id: 'ads_testes_ab', label: 'Testes A/B estruturados (criativo, copy, CTA ou público)', done: false },
-
-            { id: 'ads_ajustes_semanais', label: 'Ajustes semanais baseados em desempenho', done: false },
-            { id: 'ads_roas_monitorado', label: 'ROAS / CPA monitorado por campanha', done: false },
-            { id: 'ads_orcamento_otimizado', label: 'Otimização de orçamento e alocação de verba', done: false },
-
-            { id: 'ads_relatorio', label: 'Relatório mensal enviado com indicadores e gráficos', done: false },
-            { id: 'ads_feedback_cliente', label: 'Reunião de feedback com o cliente (mensal ou bimestral)', done: false },
-        ],
-    },
-
-    {
-        id: 'web',
-        name: 'Web',
-        icon: MdWeb,
-        checklist: [
-            // 🌐 Infraestrutura
-            { id: 'web_domain', label: 'Domínio registrado e configurado corretamente', done: false },
-            { id: 'web_hosting', label: 'Hospedagem contratada e funcional', done: false },
-            { id: 'web_ssl', label: 'Certificado SSL instalado e forçando HTTPS', done: false },
-            { id: 'web_dns', label: 'DNS configurado corretamente', done: false },
-
-            // 🧱 Estrutura e Funcionalidades
-            { id: 'web_plataforma', label: 'Tecnologia definida (WordPress, React, etc)', done: false },
-            { id: 'web_layout_responsivo', label: 'Layout responsivo em todos os dispositivos', done: false },
-            { id: 'web_uxui', label: 'Padrões de UX/UI aplicados (navegação, legibilidade, botões)', done: false },
-            { id: 'web_paginas_essenciais', label: 'Páginas obrigatórias criadas (Home, Sobre, Contato, Política)', done: false },
-            { id: 'web_forms', label: 'Formulários funcionando (contato, orçamento, etc)', done: false },
-            { id: 'web_redirecionamentos', label: 'Redirecionamentos e URLs amigáveis', done: false },
-
-            // 🛒 E-commerce (se aplicável)
-            { id: 'web_ecommerce', label: 'Loja com produtos e categorias criadas', done: false },
-            { id: 'web_pagamentos', label: 'Pagamentos integrados (Pix, Cartão, etc)', done: false },
-            { id: 'web_entregas', label: 'Frete configurado (correios, tabela fixa ou integração)', done: false },
-
-            // ✍️ Conteúdo e Identidade
-            { id: 'web_logo', label: 'Logo aplicada em todas as páginas', done: false },
-            { id: 'web_favicon', label: 'Favicon configurado', done: false },
-            { id: 'web_conteudo', label: 'Textos institucionais, serviços, blog, etc.', done: false },
-            { id: 'web_imagens', label: 'Imagens otimizadas (peso, tamanho, qualidade)', done: false },
-
-            // 🔍 SEO e Performance
-            { id: 'web_seo_title', label: 'Titles e descriptions otimizados', done: false },
-            { id: 'web_seo_tags', label: 'Uso adequado de headings (H1, H2...)', done: false },
-            { id: 'web_google_search_console', label: 'Google Search Console configurado', done: false },
-            { id: 'web_google_analytics', label: 'Google Analytics ou GA4 ativo', done: false },
-            { id: 'web_performance', label: 'Site testado no PageSpeed (Desktop e Mobile)', done: false },
-
-            // ✅ Finalização e Validação
-            { id: 'web_testes_navegacao', label: 'Testes de navegação e links em todas as páginas', done: false },
-            { id: 'web_publicado', label: 'Site publicado com sucesso', done: false },
-            { id: 'web_backup', label: 'Backup automático configurado (se aplicável)', done: false },
-        ],
-    },
-    
-
 
 ];
 
