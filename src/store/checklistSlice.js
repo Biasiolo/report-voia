@@ -4,7 +4,7 @@ import platforms from '../data/platforms';
 const initialState = {
   selectedPlatforms: [],
   observations: {},
-  progress: {}, // { platformId: [ {id, label, done} ] }
+  progress: {}, // { platformId: [ {id, label, done, quantity, frequency} ] }
 };
 
 const checklistSlice = createSlice({
@@ -12,24 +12,26 @@ const checklistSlice = createSlice({
   initialState,
   reducers: {
     setObservation: (state, action) => {
-        const { platformId, text } = action.payload;
-        state.observations[platformId] = text;
-      },
-      addCustomItem: (state, action) => {
-        const { platformId, label } = action.payload;
-        const newItem = {
-          id: `custom_${Date.now()}`,
-          label,
-          done: false,
-          custom: true,
-        };
-      
-        if (!state.progress[platformId]) {
-          state.progress[platformId] = [];
-        }
-      
-        state.progress[platformId].push(newItem);
-      },
+      const { platformId, text } = action.payload;
+      state.observations[platformId] = text;
+    },
+    addCustomItem: (state, action) => {
+      const { platformId, label, quantity = 1, frequency = 'única' } = action.payload;
+      const newItem = {
+        id: `custom_${Date.now()}`,
+        label,
+        done: false,
+        custom: true,
+        quantity,
+        frequency
+      };
+
+      if (!state.progress[platformId]) {
+        state.progress[platformId] = [];
+      }
+
+      state.progress[platformId].push(newItem);
+    },
     selectPlatforms: (state, action) => {
       state.selectedPlatforms = action.payload;
       state.progress = {};
@@ -38,10 +40,20 @@ const checklistSlice = createSlice({
         if (platform) {
           state.progress[platformId] = platform.checklist.map(item => ({
             ...item,
+            quantity: item.quantity || 1,
+            frequency: item.frequency || 'única'
           }));
         }
       });
     },
+    updateChecklistField: (state, action) => {
+  const { platformId, itemId, field, value } = action.payload;
+  const checklist = state.progress[platformId];
+  const item = checklist.find(i => i.id === itemId);
+  if (item) {
+    item[field] = value;
+  }
+},
     toggleChecklistItem: (state, action) => {
       const { platformId, itemId } = action.payload;
       const checklist = state.progress[platformId];
@@ -50,11 +62,7 @@ const checklistSlice = createSlice({
     },
     clearChecklist: () => initialState,
   },
-  
 });
-
-
-  
 
 export const {
   selectPlatforms,
@@ -62,6 +70,7 @@ export const {
   setObservation,
   addCustomItem,
   clearChecklist,
+  updateChecklistField,
 } = checklistSlice.actions;
 
 export default checklistSlice.reducer;

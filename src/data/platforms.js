@@ -4,37 +4,34 @@ import { MdWeb } from 'react-icons/md';
 
 const platforms = [
     {
-        id: 'entrada_cliente',
-        name: 'Entrada de Cliente',
-        icon: FaClipboardList, 
-        checklist: [
-          // IDENTIDADE VISUAL
-          { id: 'entrada_logo', label: 'Logo em alta resolução (PNG ou SVG)', done: false },
-          { id: 'entrada_identidade_social', label: 'Identidade aplicada nas redes sociais', done: false },
-          { id: 'entrada_visual', label: 'Identidade Visual', done: false },
-          { id: 'entrada_tipografia', label: 'Tipografia definida', done: false },
-      
-          // CONTRATAÇÕES
-          { id: 'entrada_trafego', label: 'Gestão de Tráfego Pago contratada', done: false },
-          { id: 'entrada_social_media', label: 'Gestão de Redes Sociais contratada', done: false },
-          { id: 'entrada_logomarca', label: 'Desenvolvimento de Logomarca contratado', done: false },
-          { id: 'entrada_site', label: 'Desenvolvimento de Site contratado', done: false },
-          { id: 'entrada_ecommerce', label: 'E-commerce contratado', done: false },
-          { id: 'entrada_google_meu_negocio', label: 'Google Meu Negócio contratado', done: false },
-      
-          // DOCUMENTOS E DADOS
-          { id: 'entrada_formulario_briefing', label: 'Briefing preenchido pelo cliente', done: false },
-          { id: 'entrada_arquivos', label: 'Materiais/arquivos recebidos do cliente', done: false },
-          { id: 'entrada_acesso_redes', label: 'Acessos de redes sociais recebidos', done: false },
-          { id: 'entrada_acesso_google', label: 'Acesso ao Google Ads / Analytics / Tag Manager', done: false },
-          { id: 'entrada_outros_acessos', label: 'Outros acessos relevantes (hospedagem, painel de domínio, etc)', done: false },
-      
-          // ORGANIZAÇÃO INTERNA
-          { id: 'entrada_pasta_drive', label: 'Pasta de cliente criada e organizada', done: false },
-          { id: 'entrada_nome_projeto', label: 'Nome interno do projeto definido', done: false },
-          { id: 'entrada_responsavel_conta', label: 'Responsável interno atribuído', done: false },
-        ],
-      },
+  "id": "entrada_cliente",
+  "name": "Entrada de Cliente",
+  "icon": "FaClipboardList",
+  "checklist": [
+    { "id": "entrada_logo", "label": "Logo em alta resolução (PNG ou SVG)", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_identidade_social", "label": "Identidade aplicada nas redes sociais", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_visual", "label": "Identidade Visual", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_tipografia", "label": "Tipografia definida", "done": false, "quantidade": 1, "frequencia": "única" },
+    
+    { "id": "entrada_trafego", "label": "Gestão de Tráfego Pago contratada", "done": false, "quantidade": 1, "frequencia": "mensal" },
+    { "id": "entrada_social_media", "label": "Gestão de Redes Sociais contratada", "done": false, "quantidade": 1, "frequencia": "mensal" },
+    { "id": "entrada_logomarca", "label": "Desenvolvimento de Logomarca contratado", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_site", "label": "Desenvolvimento de Site contratado", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_ecommerce", "label": "E-commerce contratado", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_google_meu_negocio", "label": "Google Meu Negócio contratado", "done": false, "quantidade": 1, "frequencia": "única" },
+    
+    { "id": "entrada_formulario_briefing", "label": "Briefing preenchido pelo cliente", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_arquivos", "label": "Materiais/arquivos recebidos do cliente", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_acesso_redes", "label": "Acessos de redes sociais recebidos", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_acesso_google", "label": "Acesso ao Google Ads / Analytics / Tag Manager", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_outros_acessos", "label": "Outros acessos relevantes (hospedagem, painel de domínio, etc)", "done": false, "quantidade": 1, "frequencia": "única" },
+    
+    { "id": "entrada_pasta_drive", "label": "Pasta de cliente criada e organizada", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_nome_projeto", "label": "Nome interno do projeto definido", "done": false, "quantidade": 1, "frequencia": "única" },
+    { "id": "entrada_responsavel_conta", "label": "Responsável interno atribuído", "done": false, "quantidade": 1, "frequencia": "única" }
+  ]
+},
+
 
       {
         id: 'trafego',

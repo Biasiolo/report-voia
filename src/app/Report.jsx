@@ -62,6 +62,7 @@ export default function Report() {
               <p><strong>Responsável:</strong> {client.name}</p>
               <p><strong>Cliente:</strong> {client.company}</p>
               <p><strong>Email:</strong> {client.email}</p>
+              <p><strong>Telefone:</strong> {client.phone}</p>
             </section>
 
             {/* Resumo do Projeto */}
@@ -112,11 +113,25 @@ export default function Report() {
                   {platform.name}
                 </h2>
 
-                <ul className="list-disc pl-5 space-y-1 text-gray-800 font-medium mb-3">
-                  {checklist.filter(item => item.done).map(item => (
-                    <li key={item.id}>{item.label}</li>
-                  ))}
-                </ul>
+                <ul className="pl-1 space-y-3 text-gray-800 text-sm">
+  {checklist.filter(item => item.done).map(item => (
+    <li key={item.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 border-b border-dashed border-gray-200 pb-2">
+      <span className="font-medium">{item.label}</span>
+      <div className="flex gap-4 text-xs text-gray-500">
+        {item.quantidade && (
+          <span>
+            <strong>Qtd:</strong> {item.quantidade}
+          </span>
+        )}
+        {item.frequencia && (
+          <span>
+            <strong>Freq.:</strong> {item.frequencia}
+          </span>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>
 
                 {note?.trim() && (
                   <div className="mt-3 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-md text-gray-700 text-sm">
