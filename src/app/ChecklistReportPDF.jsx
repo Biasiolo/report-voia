@@ -328,12 +328,12 @@ const ChecklistReportPDF = () => {
                     gap: '10px'
                   }}>
                     {completedItems.map(item => (
-  <li key={item.id} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '13px', color: '#334155', backgroundColor: '#f8fafc', padding: '8px 12px', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
+  <li key={item.id} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '13px', color: '#334155', backgroundColor: '#f8fafc', padding: '8px', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
                         <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ffffff', border: '1px solid #525252', borderRadius: '3px', flexShrink: 0, marginTop: '2px' }}></span>
                         <div style={{ flexGrow: 1 }}>
                           <div style={{ fontWeight: '600' }}>{item.label}</div>
                           {(item.quantidade || item.frequencia) && (
-                            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>
+                            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
                               {item.quantidade && <span><strong>Qtd:</strong> {item.quantidade}</span>}
                               {item.frequencia && (
                                 <span style={{ marginLeft: item.quantidade ? '12px' : '0' }}><strong>Freq.:</strong> {item.frequencia}</span>
