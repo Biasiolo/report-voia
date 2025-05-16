@@ -121,34 +121,38 @@ export default function Report() {
                   {platform.name}
                 </h2>
 
-                <ul className="pl-1 space-y-3 text-gray-800 text-sm">
-                  {checklist.filter(item => item.done).map(item => (
-                    <li
-                      key={item.id}
-                      className="flex flex-col gap-1 border-b border-dashed border-gray-200 pb-2"
-                    >
-                      <span className="font-medium">{item.label}</span>
-                      <div className="flex gap-4 text-xs text-gray-500 flex-wrap">
-                        {item.quantidade && (
-                          <span><strong>Qtd:</strong> {item.quantidade}</span>
-                        )}
-                        {item.frequencia && (
-                          <span><strong>Freq.:</strong> {item.frequencia}</span>
-                        )}
-                        <div className="flex items-center gap-2">
-                          <label className="text-gray-600 text-xs"><strong>Responsável:</strong></label>
-                          <input
-                            type="text"
-                            value={item.responsavel || ''}
-                            onChange={(e) => handleResponsavelChange(platformId, item.id, e.target.value)}
-                            className="border border-gray-300 rounded px-2 py-1 text-xs"
-                            placeholder="Nome do responsável"
-                          />
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <ul className="pl-1 space-y-4 text-gray-800 text-sm">
+  {checklist.filter(item => item.done).map(item => (
+    <li
+      key={item.id}
+      className="flex flex-col gap-2 border-b border-dashed border-gray-200 pb-4"
+    >
+      <div className="font-medium">{item.label}</div>
+
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-600 flex-wrap">
+        <div className="flex gap-4 flex-wrap">
+          {item.quantidade && (
+            <span><strong>Qtd:</strong> {item.quantidade}</span>
+          )}
+          {item.frequencia && (
+            <span><strong>Freq.:</strong> {item.frequencia}</span>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2 min-w-[200px]">
+          <label className="text-xs text-gray-600 whitespace-nowrap"><strong>Responsável:</strong></label>
+          <input
+            type="text"
+            value={item.responsavel || ''}
+            onChange={(e) => handleResponsavelChange(platformId, item.id, e.target.value)}
+            className="border border-gray-300 rounded px-2 py-1 text-xs w-full"
+            placeholder="Nome do responsável"
+          />
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
 
                 {note?.trim() && (
                   <div className="mt-3 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-md text-gray-700 text-sm">

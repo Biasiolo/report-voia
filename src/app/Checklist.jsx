@@ -173,7 +173,7 @@ export default function Checklist() {
                                 </label>
                                 <textarea
                                     rows={3}
-                                    placeholder="Observações adicionais sobre essa plataforma..."
+                                    placeholder={`Observações adicionais sobre ${platform?.name || 'essa plataforma'}`}
                                     value={observations[platformId] || ''}
                                     onChange={(e) => handleObservationChange(platformId, e.target.value)}
                                     className="w-full rounded-xl border bg-neutral-50 border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"

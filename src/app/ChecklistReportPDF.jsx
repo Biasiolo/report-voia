@@ -58,7 +58,7 @@ const ChecklistReportPDF = () => {
     return total + checklist.length;
   }, 0);
 
-  const completionPercentage = totalItems > 0 ? Math.round((totalCompleted / totalItems) * 100) : 0;
+
 
   return (
     <div
@@ -173,82 +173,70 @@ const ChecklistReportPDF = () => {
         </div>
         
         <div style={{
-          flex: '1',
-          minWidth: '280px',
-          backgroundColor: '#f8fafc',
-          padding: '20px',
-          borderRadius: '12px',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+  flex: '1',
+  minWidth: '280px',
+  backgroundColor: '#f8fafc',
+  padding: '20px',
+  borderRadius: '12px',
+  boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+}}>
+  <h2 style={{
+    fontSize: '15px',
+    fontWeight: '600',
+    marginTop: '0',
+    marginBottom: '15px',
+    color: '#0f172a',
+    borderBottom: '1px solid #e2e8f0',
+    paddingBottom: '8px',
+    display: 'flex',
+    alignItems: 'center',
+  }}>
+    <span style={{
+      display: 'inline-block',
+      width: '18px',
+      height: '18px',
+      backgroundColor: '#0d9488',
+      borderRadius: '4px',
+      marginRight: '8px'
+    }}></span>
+    Resumo do Checklist
+  </h2>
+
+  <div style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    gap: '15px'
+  }}>
+    
+
+    <div style={{ flex: 1, minWidth: '180px' }}>
+      <div style={{ marginBottom: '10px' }}>
+        <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>PLATAFORMAS ANALISADAS</p>
+        <p style={{ margin: '3px 0 0 0', fontWeight: '500', fontSize: '13px' }}>{selectedPlatforms.length}</p>
+      </div>
+
+      <div style={{ marginBottom: '10px' }}>
+        <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>ITENS VERIFICADOS</p>
+        <p style={{ margin: '3px 0 0 0', fontWeight: '500', fontSize: '13px' }}>{totalCompleted} de {totalItems}</p>
+      </div>
+
+      <div>
+        <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>TIPO DE CHECKLIST</p>
+        <p style={{
+          margin: '3px 0 0 0',
+          fontWeight: '500',
+          fontSize: '13px',
+
+          wordBreak: 'break-word',
+          color: '#0f172a'
         }}>
-          <h2 style={{ 
-            fontSize: '15px', 
-            fontWeight: '600', 
-            marginTop: '0',
-            marginBottom: '15px', 
-            color: '#0f172a',
-            borderBottom: '1px solid #e2e8f0',
-            paddingBottom: '8px',
-            display: 'flex',
-            alignItems: 'center',
-          }}>
-            <span style={{ 
-              display: 'inline-block',
-              width: '18px',
-              height: '18px',
-              backgroundColor: '#0d9488',
-              borderRadius: '4px',
-              marginRight: '8px'
-            }}></span>
-            Resumo do Checklist
-          </h2>
-          
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
-            <div style={{ textAlign: 'center', position: 'relative', width: '100px', height: '100px' }}>
-              <div style={{ 
-                width: '100px', 
-                height: '100px', 
-                borderRadius: '50%', 
-                background: `conic-gradient(#0d9488 ${completionPercentage}%, #e2e8f0 0)`,
-                position: 'relative'
-              }}>
-                <div style={{ 
-                  position: 'absolute', 
-                  top: '10px', 
-                  left: '10px', 
-                  width: '80px', 
-                  height: '80px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'white',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column'
-                }}>
-                  <span style={{ fontSize: '22px', fontWeight: 'bold', color: '#0d9488' }}>{completionPercentage}%</span>
-                  <span style={{ fontSize: '10px', color: '#64748b' }}>Concluído</span>
-                </div>
-              </div>
-            </div>
-            
-            <div style={{ flex: '1', paddingLeft: '15px' }}>
-              <div style={{ marginBottom: '10px' }}>
-                <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>PLATAFORMAS ANALISADAS</p>
-                <p style={{ margin: '3px 0 0 0', fontWeight: '500', fontSize: '13px' }}>{selectedPlatforms.length}</p>
-              </div>
-              
-              <div style={{ marginBottom: '10px' }}>
-                <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>ITENS VERIFICADOS</p>
-                <p style={{ margin: '3px 0 0 0', fontWeight: '500', fontSize: '13px' }}>{totalCompleted} de {totalItems}</p>
-              </div>
-              
-              <div>
-                <p style={{ margin: '0', color: '#64748b', fontSize: '11px', fontWeight: '500' }}>TIPO DE CHECKLIST</p>
-                <p style={{ margin: '3px 0 0 0', fontWeight: '500', fontSize: '13px', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {selectedPlatforms.map(id => platforms.find(p => p.id === id)?.name).filter(Boolean).join(', ')}
-                </p>
-              </div>
-            </div>
-          </div>
+          {selectedPlatforms.map(id => platforms.find(p => p.id === id)?.name).filter(Boolean).join(', ')}
+        </p>
+      </div>
+    </div>
+  </div>
+
         </div>
       </div>
 
@@ -425,8 +413,7 @@ const ChecklistReportPDF = () => {
         }}>
           Este relatório apresenta os resultados da análise de marketing digital realizada para {client.company || 'o cliente'}. 
           O checklist foi concluído em {formattedDate} por {client.name || 'um representante'} da Voia Agency. 
-          Para mais informações ou para agendar uma reunião de consultoria, entre em contato com nossa equipe através 
-          do email contato@voiaagency.com.br.
+          Para mais informações ou para agendar uma reunião, entre em contato com {client.name || 'o responsável'}.
         </p>
       </div>
 
