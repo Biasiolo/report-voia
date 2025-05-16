@@ -4,7 +4,7 @@ import platforms from '../data/platforms';
 const initialState = {
   selectedPlatforms: [],
   observations: {},
-  progress: {}, // { platformId: [ {id, label, done, quantity, frequency} ] }
+  progress: {}, // { platformId: [ {id, label, done, quantity, frequency, responsavel} ] }
 };
 
 const checklistSlice = createSlice({
@@ -15,15 +15,24 @@ const checklistSlice = createSlice({
       const { platformId, text } = action.payload;
       state.observations[platformId] = text;
     },
+
     addCustomItem: (state, action) => {
-      const { platformId, label, quantity = 1, frequency = 'única' } = action.payload;
+      const {
+        platformId,
+        label,
+        quantity = 1,
+        frequency = 'única',
+        responsavel = ''
+      } = action.payload;
+
       const newItem = {
         id: `custom_${Date.now()}`,
         label,
         done: false,
         custom: true,
         quantity,
-        frequency
+        frequency,
+        responsavel
       };
 
       if (!state.progress[platformId]) {
@@ -32,34 +41,40 @@ const checklistSlice = createSlice({
 
       state.progress[platformId].push(newItem);
     },
+
     selectPlatforms: (state, action) => {
       state.selectedPlatforms = action.payload;
       state.progress = {};
-      action.payload.forEach(platformId => {
-        const platform = platforms.find(p => p.id === platformId);
+
+      action.payload.forEach((platformId) => {
+        const platform = platforms.find((p) => p.id === platformId);
         if (platform) {
-          state.progress[platformId] = platform.checklist.map(item => ({
+          state.progress[platformId] = platform.checklist.map((item) => ({
             ...item,
             quantity: item.quantity || 1,
-            frequency: item.frequency || 'única'
+            frequency: item.frequency || 'única',
+            responsavel: item.responsavel || ''
           }));
         }
       });
     },
+
     updateChecklistField: (state, action) => {
-  const { platformId, itemId, field, value } = action.payload;
-  const checklist = state.progress[platformId];
-  const item = checklist.find(i => i.id === itemId);
-  if (item) {
-    item[field] = value;
-  }
-},
+      const { platformId, itemId, field, value } = action.payload;
+      const checklist = state.progress[platformId];
+      const item = checklist.find((i) => i.id === itemId);
+      if (item) {
+        item[field] = value;
+      }
+    },
+
     toggleChecklistItem: (state, action) => {
       const { platformId, itemId } = action.payload;
       const checklist = state.progress[platformId];
-      const item = checklist.find(i => i.id === itemId);
+      const item = checklist.find((i) => i.id === itemId);
       if (item) item.done = !item.done;
     },
+
     clearChecklist: () => initialState,
   },
 });

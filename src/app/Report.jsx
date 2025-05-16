@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import platforms from '../data/platforms';
 import { clearClientData } from '../store/clientSlice';
-import { clearChecklist } from '../store/checklistSlice';
+import { clearChecklist, updateChecklistField } from '../store/checklistSlice';
 import { BsFillClipboard2CheckFill } from "react-icons/bs";
 
 export default function Report() {
@@ -39,6 +39,15 @@ export default function Report() {
     dispatch(clearClientData());
     dispatch(clearChecklist());
     navigate('/');
+  };
+
+  const handleResponsavelChange = (platformId, itemId, value) => {
+    dispatch(updateChecklistField({
+      platformId,
+      itemId,
+      field: 'responsavel',
+      value
+    }));
   };
 
   return (
@@ -92,7 +101,6 @@ export default function Report() {
             </section>
           </div>
 
-
           {selectedPlatforms.map((platformId) => {
             const platform = platforms.find(p => p.id === platformId);
             const checklist = progress[platformId];
@@ -114,24 +122,33 @@ export default function Report() {
                 </h2>
 
                 <ul className="pl-1 space-y-3 text-gray-800 text-sm">
-  {checklist.filter(item => item.done).map(item => (
-    <li key={item.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 border-b border-dashed border-gray-200 pb-2">
-      <span className="font-medium">{item.label}</span>
-      <div className="flex gap-4 text-xs text-gray-500">
-        {item.quantidade && (
-          <span>
-            <strong>Qtd:</strong> {item.quantidade}
-          </span>
-        )}
-        {item.frequencia && (
-          <span>
-            <strong>Freq.:</strong> {item.frequencia}
-          </span>
-        )}
-      </div>
-    </li>
-  ))}
-</ul>
+                  {checklist.filter(item => item.done).map(item => (
+                    <li
+                      key={item.id}
+                      className="flex flex-col gap-1 border-b border-dashed border-gray-200 pb-2"
+                    >
+                      <span className="font-medium">{item.label}</span>
+                      <div className="flex gap-4 text-xs text-gray-500 flex-wrap">
+                        {item.quantidade && (
+                          <span><strong>Qtd:</strong> {item.quantidade}</span>
+                        )}
+                        {item.frequencia && (
+                          <span><strong>Freq.:</strong> {item.frequencia}</span>
+                        )}
+                        <div className="flex items-center gap-2">
+                          <label className="text-gray-600 text-xs"><strong>Responsável:</strong></label>
+                          <input
+                            type="text"
+                            value={item.responsavel || ''}
+                            onChange={(e) => handleResponsavelChange(platformId, item.id, e.target.value)}
+                            className="border border-gray-300 rounded px-2 py-1 text-xs"
+                            placeholder="Nome do responsável"
+                          />
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
                 {note?.trim() && (
                   <div className="mt-3 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-md text-gray-700 text-sm">

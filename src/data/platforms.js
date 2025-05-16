@@ -1,284 +1,742 @@
-import { FaInstagram, FaFacebookF, FaTiktok, FaLinkedinIn, FaLink, FaClipboardList } from 'react-icons/fa';
-import { SiGooglestreetview, SiGoogleads } from 'react-icons/si';
-import { MdWeb } from 'react-icons/md';
+import { FaClipboardList, FaBullhorn, FaGlobe, FaChartLine, FaGoogle, FaCameraRetro } from 'react-icons/fa';
+
 
 const platforms = [
     {
-  "id": "entrada_cliente",
-  "name": "Entrada de Cliente",
-  "icon": "FaClipboardList",
-  "checklist": [
-    { "id": "entrada_logo", "label": "Logo em alta resolução (PNG ou SVG)", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_identidade_social", "label": "Identidade aplicada nas redes sociais", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_visual", "label": "Identidade Visual", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_tipografia", "label": "Tipografia definida", "done": false, "quantidade": 1, "frequencia": "única" },
-    
-    { "id": "entrada_trafego", "label": "Gestão de Tráfego Pago contratada", "done": false, "quantidade": 1, "frequencia": "mensal" },
-    { "id": "entrada_social_media", "label": "Gestão de Redes Sociais contratada", "done": false, "quantidade": 1, "frequencia": "mensal" },
-    { "id": "entrada_logomarca", "label": "Desenvolvimento de Logomarca contratado", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_site", "label": "Desenvolvimento de Site contratado", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_ecommerce", "label": "E-commerce contratado", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_google_meu_negocio", "label": "Google Meu Negócio contratado", "done": false, "quantidade": 1, "frequencia": "única" },
-    
-    { "id": "entrada_formulario_briefing", "label": "Briefing preenchido pelo cliente", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_arquivos", "label": "Materiais/arquivos recebidos do cliente", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_acesso_redes", "label": "Acessos de redes sociais recebidos", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_acesso_google", "label": "Acesso ao Google Ads / Analytics / Tag Manager", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_outros_acessos", "label": "Outros acessos relevantes (hospedagem, painel de domínio, etc)", "done": false, "quantidade": 1, "frequencia": "única" },
-    
-    { "id": "entrada_pasta_drive", "label": "Pasta de cliente criada e organizada", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_nome_projeto", "label": "Nome interno do projeto definido", "done": false, "quantidade": 1, "frequencia": "única" },
-    { "id": "entrada_responsavel_conta", "label": "Responsável interno atribuído", "done": false, "quantidade": 1, "frequencia": "única" }
+  id: "marketing",
+  name: "Marketing",
+  icon: FaBullhorn,
+  checklist: [
+    {
+      "id": "marketing_grupo_cliente",
+      "label": "Criar grupo cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_reuniao_briefing",
+      "label": "Agendar e realizar reunião de briefing com cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_ata",
+      "label": "Enviar ATA de reunião para cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_pasta_drive",
+      "label": "Criar pasta do cliente no Drive",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_solicitar_conteudos",
+      "label": "Solicitar conteúdos para o cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_inserir_conteudos",
+      "label": "Inserir conteúdos + ATA e link da reunião no Drive",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_card_operand",
+      "label": "Criar card no Operand de revisão ou criação de redes do cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_verificar_redes",
+      "label": "Verificar se tem todas as redes",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_senha_atualizada",
+      "label": "Verificar se a senha está atualizada",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_email_telefone",
+      "label": "Verificar e-mail e telefone de recuperação de todas as redes",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_planilha_acessos",
+      "label": "Criar planilha com as senhas e e-mails atualizados",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_enviar_planilha",
+      "label": "Enviar planilha no particular do cliente",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_card_planejamento",
+      "label": "Criar card para o planejamento do cliente",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_planejamento_estrategico",
+      "label": "Criar o Planejamento de campanhas Marketing Estratégico Mensal",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_atualizar_foto",
+      "label": "Atualizar Foto de perfil das redes",
+      "frequencia": "Trimestral",
+      "done": false
+    },
+    {
+      "id": "marketing_bio_destaques",
+      "label": "Atualizar Bio e Destaques do cliente",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_planejamento_promocional",
+      "label": "Criar planejamento de campanhas promocionais únicas",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_posts_estaticos",
+      "label": "Produzir posts estáticos",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_carrosseis",
+      "label": "Produzir carrosséis",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_stories",
+      "label": "Produzir stories",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_enviar_planejamento",
+      "label": "Enviar planejamento pronto pro cliente",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_agendar_conteudos",
+      "label": "Agendar 52 conteúdos mensais",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_pecas_offline",
+      "label": "Criar até 10 peças de material gráfico off-line",
+      "quantidade": "10x",
+      "done": false
+    },
+    {
+      "id": "marketing_replicar_redes",
+      "label": "Replicar nas redes sociais",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_roteiros_reels",
+      "label": "Criar roteiros para Reels com temas",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_eusou",
+      "label": "Temas: Eu sou",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_boasvindas",
+      "label": "Temas: Boas Vindas",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_servicos",
+      "label": "Temas: Produtos e Serviços",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_cases",
+      "label": "Temas: Cases de Sucesso",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_endosso",
+      "label": "Temas: Endosso Social",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_app",
+      "label": "Temas: Aplicativo",
+      "quantidade": "1x",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_didaticos",
+      "label": "Temas: Vídeos didáticos",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_tema_interna",
+      "label": "Temas: Campanha interna",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_gravacao_cliente",
+      "label": "Agendar gravação de conteúdos com cliente",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_acompanhamento",
+      "label": "Acompanhar presencialmente as gravações (se solicitado)",
+      "frequencia": "Mensal",
+      "done": false
+    },
+    {
+      "id": "marketing_relatorio_mensal",
+      "label": "Enviar relatório mensal de desempenho",
+      "frequencia": "Mensal",
+      "done": false
+    }
   ]
 },
 
 
       {
-        id: 'trafego',
-        name: 'Tráfego',
-        icon: SiGoogleads,
-        checklist: [
-
-            { id: 'ads_login', label: 'Acesso às contas concedido (Google Ads / Meta Ads)', done: false },
-            { id: 'ads_tag_instalada', label: 'Tags e pixels instalados corretamente no site', done: false },
-            { id: 'ads_gtm', label: 'Google Tag Manager instalado e validado', done: false },
-            { id: 'ads_conversoes', label: 'Eventos de conversão definidos e funcionando', done: false },
-
-            { id: 'ads_conta_verificada', label: 'Contas verificadas e com formas de pagamento ativas', done: false },
-            { id: 'ads_fuso_moeda', label: 'Fuso horário e moeda ajustados corretamente', done: false },
-            { id: 'ads_estrutura', label: 'Estrutura de campanhas padronizada (campanhas, grupos, anúncios)', done: false },
-
-            { id: 'ads_públicos_criados', label: 'Públicos salvos (interesses, lookalike, personalizados)', done: false },
-            { id: 'ads_audiencias_revisadas', label: 'Audiências revisadas por etapa do funil', done: false },
-            { id: 'ads_remarketing', label: 'Listas de remarketing ativas e validadas', done: false },
-
-            { id: 'ads_objetivo_definido', label: 'Objetivos de campanha bem definidos (tráfego, conversão, leads, etc)', done: false },
-            { id: 'ads_oferta', label: 'Oferta clara e validada com o cliente', done: false },
-            { id: 'ads_copy_design', label: 'Anúncios criados com copy + criativo aprovado', done: false },
-            { id: 'ads_veiculando', label: 'Campanhas ativas e em veiculação', done: false },
-            { id: 'ads_testes_ab', label: 'Testes A/B estruturados (criativo, copy, CTA ou público)', done: false },
-
-            { id: 'ads_ajustes_semanais', label: 'Ajustes semanais baseados em desempenho', done: false },
-            { id: 'ads_roas_monitorado', label: 'ROAS / CPA monitorado por campanha', done: false },
-            { id: 'ads_orcamento_otimizado', label: 'Otimização de orçamento e alocação de verba', done: false },
-
-            { id: 'ads_relatorio', label: 'Relatório mensal enviado com indicadores e gráficos', done: false },
-            { id: 'ads_feedback_cliente', label: 'Reunião de feedback com o cliente (mensal ou bimestral)', done: false },
-        ],
-    },
-
+  id: "web",
+  name: "Web",
+  icon: FaGlobe,
+  checklist: [
     {
-        id: 'web',
-        name: 'Web',
-        icon: MdWeb,
-        checklist: [
-            // Infraestrutura
-            { id: 'web_domain', label: 'Domínio registrado e configurado corretamente', done: false },
-            { id: 'web_hosting', label: 'Hospedagem contratada e funcional', done: false },
-            { id: 'web_ssl', label: 'Certificado SSL instalado e forçando HTTPS', done: false },
-            { id: 'web_dns', label: 'DNS configurado corretamente', done: false },
-
-            // Estrutura e Funcionalidades
-            { id: 'web_plataforma', label: 'Tecnologia definida (WordPress, React, etc)', done: false },
-            { id: 'web_layout_responsivo', label: 'Layout responsivo em todos os dispositivos', done: false },
-            { id: 'web_uxui', label: 'Padrões de UX/UI aplicados (navegação, legibilidade, botões)', done: false },
-            { id: 'web_paginas_essenciais', label: 'Páginas obrigatórias criadas (Home, Sobre, Contato, Política)', done: false },
-            { id: 'web_forms', label: 'Formulários funcionando (contato, orçamento, etc)', done: false },
-            { id: 'web_redirecionamentos', label: 'Redirecionamentos e URLs amigáveis', done: false },
-
-            // E-commerce (se aplicável)
-            { id: 'web_ecommerce', label: 'Loja com produtos e categorias criadas', done: false },
-            { id: 'web_pagamentos', label: 'Pagamentos integrados (Pix, Cartão, etc)', done: false },
-            { id: 'web_entregas', label: 'Frete configurado (correios, tabela fixa ou integração)', done: false },
-
-            // Conteúdo e Identidade
-            { id: 'web_logo', label: 'Logo aplicada em todas as páginas', done: false },
-            { id: 'web_favicon', label: 'Favicon configurado', done: false },
-            { id: 'web_conteudo', label: 'Textos institucionais, serviços, blog, etc.', done: false },
-            { id: 'web_imagens', label: 'Imagens otimizadas (peso, tamanho, qualidade)', done: false },
-
-            // SEO e Performance
-            { id: 'web_seo_title', label: 'Titles e descriptions otimizados', done: false },
-            { id: 'web_seo_tags', label: 'Uso adequado de headings (H1, H2...)', done: false },
-            { id: 'web_google_search_console', label: 'Google Search Console configurado', done: false },
-            { id: 'web_google_analytics', label: 'Google Analytics ou GA4 ativo', done: false },
-            { id: 'web_performance', label: 'Site testado no PageSpeed (Desktop e Mobile)', done: false },
-
-            // Finalização e Validação
-            { id: 'web_testes_navegacao', label: 'Testes de navegação e links em todas as páginas', done: false },
-            { id: 'web_publicado', label: 'Site publicado com sucesso', done: false },
-            { id: 'web_backup', label: 'Backup automático configurado (se aplicável)', done: false },
-        ],
+      "id": "web_1",
+      "label": "Criar grupo cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
     },
     {
-        id: 'gmb',
-        name: 'Google Meu Negócio',
-        icon: SiGooglestreetview,
-        checklist: [
-          { id: 'gmb_login', label: 'Login/Senha da Conta Google', done: false },
-          { id: 'gmb_verificacao', label: 'Verificação da empresa (código ou vídeo)', done: false },
-      
-          { id: 'gmb_nome', label: 'Nome do negócio sem palavras-chave adicionais', done: false },
-          { id: 'gmb_address', label: 'Endereço completo (rua, número, cidade, estado, CEP)', done: false },
-          { id: 'gmb_area_atendimento', label: 'Área de atuação/regiões atendidas', done: false },
-          { id: 'gmb_phone', label: 'Telefone de contato atualizado (WhatsApp se aplicável)', done: false },
-          { id: 'gmb_horario', label: 'Horário de funcionamento (incluindo feriados)', done: false },
-          { id: 'gmb_site', label: 'Site oficial vinculado corretamente', done: false },
-      
-          { id: 'gmb_categoria', label: 'Categoria principal precisa e específica', done: false },
-          { id: 'gmb_subcategorias', label: 'Subcategorias relevantes (até 10)', done: false },
-          { id: 'gmb_atributos', label: 'Atributos preenchidos (ex: atend online, acessibilidade)', done: false },
-      
-          { id: 'gmb_logo', label: 'Logo em alta resolução adicionado', done: false },
-          { id: 'gmb_capa', label: 'Foto de capa com logo ou slogan', done: false },
-          { id: 'gmb_fotos_ambiente', label: 'Fotos do ambiente e equipe (mínimo 10)', done: false },
-          { id: 'gmb_fotos_servicos', label: 'Fotos de produtos, serviços e resultados', done: false },
-          { id: 'gmb_videos', label: 'Vídeos institucionais (15-30 segundos)', done: false },
-      
-          { id: 'gmb_descricao', label: 'Descrição otimizada (com até 750 caracteres e palavras-chave)', done: false },
-          { id: 'gmb_servicos', label: 'Serviços listados com descrições claras', done: false },
-      
-          { id: 'gmb_posts', label: 'Posts criados e agendados (promoções, atualizações)', done: false },
-          { id: 'gmb_qna', label: 'Perguntas e Respostas adicionadas (Q&A)', done: false },
-      
-          { id: 'gmb_review', label: 'Avaliações respondidas com cordialidade', done: false },
-          { id: 'gmb_pedidos_avaliacao', label: 'Links de avaliação enviados a clientes', done: false },
-          { id: 'gmb_monitoramento', label: 'Monitoramento de novas avaliações e comentários', done: false },
-          { id: 'gmb_modelo_resposta', label: 'Guia de resposta padrão definido', done: false },
-      
-          { id: 'gmb_metricas', label: 'Métricas de pesquisa, chamadas e visitas analisadas', done: false },
-          { id: 'gmb_relatorio', label: 'Relatório mensal de desempenho e ações', done: false },
-        ],
-      },
+      "id": "web_2",
+      "label": "Agendar e realizar reunião de briefing com cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_3",
+      "label": "Enviar ATA de reunião para cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_4",
+      "label": "Criar pasta do cliente no Drive",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_5",
+      "label": "Solicitar conteudos para o cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_6",
+      "label": "Inserir conteudos + ATA e link da reunião no Drive",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_7",
+      "label": "Criar estrategia e copy do site",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_8",
+      "label": "Enviar copy pra aprovação do cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_9",
+      "label": "Criar designer pelo figma",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_10",
+      "label": "Envia o designer do figma pra aprovação do cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_11",
+      "label": "Produção do site pelo bricks",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_12",
+      "label": "Verificação de funcionamento dos botões",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_13",
+      "label": "Verificação do titulo do site se esta com palavra chave",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_14",
+      "label": "Verificação de favicon",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_15",
+      "label": "Verificação de logo se esta sendo redirecionada pra home",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_16",
+      "label": "Link de politica de privacidade no rodapé",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_17",
+      "label": "pop up de politica de privacidade",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_18",
+      "label": "Verificação dos titulos das paginas se estão corretos",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_19",
+      "label": "Verificação de pagina 404",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_20",
+      "label": "Existe botão de whatsapp",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_21",
+      "label": "Teste de responsividade",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_22",
+      "label": "Teste de formulario",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_23",
+      "label": "Criação e avaliação do SEO",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_24",
+      "label": "Verificação com cliente sobre dominio e hospedagem",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_25",
+      "label": "Envio do site pronto pra aprovação do cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_26",
+      "label": "Envio de codigo fonte pro cliente via e-mail e whats",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_27",
+      "label": "Caso o cliente se hospede com a NED, alterar grupo para de hospedagem",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    },
+    {
+      "id": "web_28",
+      "label": "Caso não se hospede com a NED, finalizar grupo de cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": ""
+    }
+  ]
+},
+
+    {
+  id: "trafego",
+  name: "Tráfego",
+  icon: FaChartLine,
+  checklist: [
+    {
+      "id": "trafego_agendar_e_realizar_reuniao_de_briefing_com_cliente",
+      "label": "Agendar e realizar reunião de briefing com cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_enviar_ata_de_reuniao_para_cliente",
+      "label": "Enviar ATA de reunião para cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_criar_pasta_do_cliente_no_drive",
+      "label": "Criar pasta do cliente no Drive",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_criar_planilha_de_acessos_do_cliente_e_inserir_no_drive",
+      "label": "Criar planilha de acessos do cliente e inserir no drive",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_solicitar_conteudos_para_o_cliente",
+      "label": "Solicitar conteudos para o cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_inserir_conteudos_+_ata_e_link_da_reuniao_no_drive",
+      "label": "Inserir conteudos + ATA e link da reunião no Drive",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_implementacao_do_cliente_no_funil_no_operand_e_no_trello",
+      "label": "Implementação do cliente no funil no Operand e no trello",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_fazer_onboarding",
+      "label": "Fazer onboarding",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_analise_das_contas",
+      "label": "Analise das contas",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_configurar_contas_no_business_manager_(meta_ads)",
+      "label": "Configurar contas no Business Manager (Meta Ads)",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_criar_conta_no_google_ads",
+      "label": "Criar conta no Google Ads",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "1x"
+    },
+    {
+      "id": "trafego_implementacao_das_estrategias",
+      "label": "Implementação das estrategias",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Mensal"
+    },
+    {
+      "id": "trafego_criar_campanhas_meta_ads",
+      "label": "Criar campanhas Meta Ads",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Mensal"
+    },
+    {
+      "id": "trafego_criar_campanhas_google_ads",
+      "label": "Criar campanhas Google Ads",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Mensal"
+    },
+    {
+      "id": "trafego_validar_criativos,_copies_e_públicos-alvo_com_cliente",
+      "label": "Validar criativos, copies e públicos-alvo com cliente",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Mensal"
+    },
+    {
+      "id": "trafego_escala_de_orcamento",
+      "label": "Escala de orçamento",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Mensal"
+    },
+    {
+      "id": "trafego_enviar_relatórios_semanais_com_comparativos_e_roi",
+      "label": "Enviar relatórios semanais com comparativos e ROI",
+      "done": false,
+      "quantidade": "1",
+      "frequencia": "Semanal"
+    }
+  ]
+},
+    {
+  id: "gmn",
+  name: "Google Meu Negócio",
+  icon: FaGoogle,
+  checklist: [
+    {
+      "id": "gmn_grupo",
+      "label": "Criar grupo cliente",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_formulario",
+      "label": "Envio de documento pro cliente preencher as informações",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_fotos",
+      "label": "Solicitar fotos para cliente",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_criar_conta",
+      "label": "Criar conta no Google",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_descricao_seo",
+      "label": "Criar descrição com SEO",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_catalogo",
+      "label": "Inserir fotos com catálogo",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_atualizacao",
+      "label": "Atualização de informações",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_redes",
+      "label": "Inserir redes do cliente",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_comentarios",
+      "label": "Responder comentários do GMN",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_apresentacao",
+      "label": "Reunião de apresentação do GMN e ensinar como funciona a ferramenta",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_acesso",
+      "label": "Envio do acesso da plataforma pro cliente",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_arte_avaliacao",
+      "label": "Envio da arte de avaliação do GMN",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_manutencao",
+      "label": "Caso o cliente tenha MKT conosco, muda o nome do grupo pra manutenção de GMN",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    },
+    {
+      "id": "gmn_finalizacao",
+      "label": "Finalização de grupo",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": "Única"
+    }
+  ]
+},
       
       
     {
-        id: 'instagram',
-        name: 'Instagram',
-        icon: FaInstagram,
-        checklist: [
-
-            { id: 'insta_login', label: 'Login/Senha Atualizado', done: false },
-            { id: 'insta_conta_comercial', label: 'Conta configurada como Comercial ou Criador', done: false },
-            { id: 'insta_facebook_integrado', label: 'Instagram vinculado ao Facebook Business', done: false },
-            { id: 'insta_foto_perfil', label: 'Foto de Perfil otimizada', done: false },
-            { id: 'insta_bio', label: 'Bio com proposta clara', done: false },
-            { id: 'insta_link_bio', label: 'Link na Bio (ex: Linktree ou página personalizada)', done: false },
-            { id: 'insta_destaques', label: 'Destaques organizados com capa personalizada', done: false },
-
-            { id: 'insta_paleta', label: 'Identidade visual definida e aplicada', done: false },
-            { id: 'insta_templates', label: 'Templates de posts e stories criados', done: false },
-
-            { id: 'insta_posts_criados', label: 'Posts criados com texto e design aprovado', done: false },
-            { id: 'insta_posts_agendados', label: 'Posts agendados conforme calendário', done: false },
-            { id: 'insta_stories_criados', label: 'Stories criados com interações (enquete, quiz, etc)', done: false },
-            { id: 'insta_stories_agendados', label: 'Stories agendados e programados', done: false },
-            { id: 'insta_reels_criados', label: 'Reels produzidos com corte, legenda e áudio', done: false },
-            { id: 'insta_reels_agendados', label: 'Reels agendados conforme planejamento', done: false },
-
-            { id: 'insta_impulsionamento', label: 'Impulsionamentos configurados (com público e objetivo)', done: false },
-            { id: 'insta_ab_test', label: 'Testes A/B com criativos diferentes', done: false },
-
-            { id: 'insta_analise_mensal', label: 'Relatório mensal enviado com métricas e insights', done: false },
-            { id: 'insta_otimizacoes', label: 'Ajustes realizados com base nos dados', done: false },
-
-            { id: 'insta_captacao', label: 'Captação', done: false },
-        ],
+  id: "audiovisual",
+  name: "Treinamento Audiovisual",
+  icon: FaCameraRetro,
+  checklist: [
+    {
+      "id": "av_treinamento_personalizado",
+      "label": "Agendar os Treinamento personalizado para ensinar práticas para criação de conteúdos",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": ""
     },
+    {
+      "id": "av_status_execucao",
+      "label": "Atualizar status de execução em painel visual",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": ""
+    },
+    {
+      "id": "av_marcar_entregue",
+      "label": "Marcar como 'entregue' após aprovação, registro e arquivamento",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": ""
+    },
+    {
+      "id": "av_conferir_pendencias",
+      "label": "Conferir pendências antes de iniciar nova etapa",
+      "done": false,
+      "quantidade": "1x",
+      "frequencia": ""
+    }
+  ]
+},
 
     {
-        id: 'facebook',
-        name: 'Facebook',
-        icon: FaFacebookF,
-        checklist: [
-
-            { id: 'fb_login', label: 'Login/Senha Atualizado', done: false },
-            { id: 'fb_conta_comercial', label: 'Página configurada como Empresa', done: false },
-            { id: 'fb_vinculo_instagram', label: 'Vinculada ao Instagram no Business Suite', done: false },
-
-            { id: 'fb_profile_pic', label: 'Foto de Perfil', done: false },
-            { id: 'fb_cover', label: 'Imagem de Capa personalizada', done: false },
-            { id: 'fb_bio', label: 'Descrição/Bio com posicionamento', done: false },
-            { id: 'fb_cta', label: 'Botão de chamada para ação configurado (WhatsApp, Site, etc)', done: false },
-
-            { id: 'fb_posts', label: 'Publicações recentes relevantes no feed', done: false },
-            { id: 'fb_schedule', label: 'Agendamento de conteúdo no Business Suite', done: false },
-
-        ],
-    },
-
+  id: "geral",
+  name: "Geral",
+  icon: FaClipboardList,
+  checklist: [
     {
-        id: 'tiktok',
-        name: 'TikTok',
-        icon: FaTiktok,
-        checklist: [
-
-            { id: 'tiktok_login', label: 'Login/Senha atualizado', done: false },
-            { id: 'tiktok_config_perfil', label: 'Perfil público e otimizado (nome, arroba, tipo de conta)', done: false },
-
-            { id: 'tiktok_bio', label: 'Bio com proposta clara', done: false },
-            { id: 'tiktok_link', label: 'Link na bio ativo (Linktree ou site)', done: false },
-
-            { id: 'tiktok_videos_postados', label: 'Vídeos postados recentemente', done: false },
-            { id: 'tiktok_agendados', label: 'Vídeos agendados (ou organizados para postagem)', done: false },
-
-            { id: 'tiktok_thumbnail', label: 'Capas personalizadas nos vídeos principais', done: false },
-            { id: 'tiktok_hashtags', label: 'Hashtags estratégicas utilizadas', done: false },
-
-            { id: 'tiktok_metricas', label: 'Métricas básicas verificadas (visualizações, curtidas)', done: false },
-        ],
+      "id": "geral_pasta_compartilhada",
+      "label": "Criar pasta compartilhada com todos os arquivos do cliente",
+      "done": false,
+      "quantidade": 1,
+      "frequencia": "Única"
     },
-
     {
-        id: 'linkedin',
-        name: 'LinkedIn',
-        icon: FaLinkedinIn,
-        checklist: [
-
-            { id: 'linkedin_login', label: 'Login/Senha atualizado', done: false },
-            { id: 'linkedin_perfil_pessoal', label: 'Perfil pessoal vinculado à empresa (admin)', done: false },
-            { id: 'linkedin_pagina_empresa', label: 'Página da empresa criada e configurada', done: false },
-
-            { id: 'linkedin_foto_perfil', label: 'Foto de Perfil (logo da empresa)', done: false },
-            { id: 'linkedin_capa', label: 'Imagem de capa institucional', done: false },
-            { id: 'linkedin_descricao', label: 'Descrição da empresa com palavras-chave', done: false },
-            { id: 'linkedin_localizacao', label: 'Localização atualizada', done: false },
-            { id: 'linkedin_website', label: 'Website vinculado', done: false },
-            { id: 'linkedin_contato', label: 'Dados de contato atualizados', done: false },
-
-            { id: 'linkedin_posts', label: 'Publicações recentes no feed da empresa', done: false },
-            { id: 'linkedin_agendados', label: 'Posts agendados (ou planejados)', done: false },
-
-            { id: 'linkedin_vagas', label: 'Sessão de vagas atualizada (se aplicável)', done: false },
-        ],
+      "id": "geral_status_painel",
+      "label": "Atualizar status de execução em painel visual",
+      "done": false,
+      "quantidade": 1,
+      "frequencia": "Única"
     },
-
     {
-        id: 'linktree',
-        name: 'Linktree',
-        icon: FaLink,
-        checklist: [
-
-            { id: 'linktree_login', label: 'Login/Senha atualizado', done: false },
-            { id: 'linktree_custom_url', label: 'URL personalizada e fácil de lembrar', done: false },
-            { id: 'linktree_tema', label: 'Tema visual definido (cores e layout)', done: false },
-
-            { id: 'linktree_site', label: 'Link para Site ou Blog', done: false },
-            { id: 'linktree_whatsapp', label: 'WhatsApp com link direto', done: false },
-            { id: 'linktree_facebook', label: 'Facebook', done: false },
-            { id: 'linktree_instagram', label: 'Instagram', done: false },
-            { id: 'linktree_tiktok', label: 'TikTok', done: false },
-            { id: 'linktree_youtube', label: 'YouTube', done: false },
-            { id: 'linktree_linkedin', label: 'LinkedIn', done: false },
-            { id: 'linktree_x', label: 'X (Twitter)', done: false },
-            { id: 'linktree_pinterest', label: 'Pinterest', done: false },
-            { id: 'linktree_spotify', label: 'Spotify', done: false },
-            { id: 'linktree_ebooks', label: 'E-books ou materiais gratuitos', done: false },
-
-            { id: 'linktree_testado', label: 'Todos os links testados e funcionando', done: false },
-            { id: 'linktree_google_index', label: 'Linktree indexado no perfil Google/Instagram', done: false },
-        ],
+      "id": "geral_marcar_entregue",
+      "label": "Marcar como 'entregue' após aprovação, registro e arquivamento",
+      "done": false,
+      "quantidade": 1,
+      "frequencia": "Única"
     },
+    {
+      "id": "geral_conferir_pendencias",
+      "label": "Conferir pendências antes de iniciar nova etapa",
+      "done": false,
+      "quantidade": 1,
+      "frequencia": "Única"
+    }
+  ]
+},
+
+    
 
 ];
 
