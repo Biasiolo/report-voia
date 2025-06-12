@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import platforms from '../data/platforms';
 import { clearClientData } from '../store/clientSlice';
-import { clearChecklist, updateChecklistField } from '../store/checklistSlice';
+import { clearChecklist, updateChecklistField, setObservation } from '../store/checklistSlice';
 import { BsFillClipboard2CheckFill } from "react-icons/bs";
 
 export default function Report() {
@@ -48,6 +48,10 @@ export default function Report() {
       field: 'responsavel',
       value
     }));
+  };
+
+  const handleBack = () => {
+    navigate('/checklist');
   };
 
   return (
@@ -122,49 +126,62 @@ export default function Report() {
                 </h2>
 
                 <ul className="pl-1 space-y-4 text-gray-800 text-sm">
-  {checklist.filter(item => item.done).map(item => (
-    <li
-      key={item.id}
-      className="flex flex-col gap-2 border-b border-dashed border-gray-200 pb-4"
-    >
-      <div className="font-medium">{item.label}</div>
+                  {checklist.filter(item => item.done).map(item => (
+                    <li
+                      key={item.id}
+                      className="flex flex-col gap-2 border-b border-dashed border-gray-200 pb-4"
+                    >
+                      <div className="font-medium">{item.label}</div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-600 flex-wrap">
-        <div className="flex gap-4 flex-wrap">
-          {item.quantidade && (
-            <span><strong>Qtd:</strong> {item.quantidade}</span>
-          )}
-          {item.frequencia && (
-            <span><strong>Freq.:</strong> {item.frequencia}</span>
-          )}
-        </div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-600 flex-wrap">
+                        <div className="flex gap-4 flex-wrap">
+                          {item.quantidade && (
+                            <span><strong>Qtd:</strong> {item.quantidade}</span>
+                          )}
+                          {item.frequencia && (
+                            <span><strong>Freq.:</strong> {item.frequencia}</span>
+                          )}
+                        </div>
 
-        <div className="flex items-center gap-2 min-w-[200px]">
-          <label className="text-xs text-gray-600 whitespace-nowrap"><strong>Responsável:</strong></label>
-          <input
-            type="text"
-            value={item.responsavel || ''}
-            onChange={(e) => handleResponsavelChange(platformId, item.id, e.target.value)}
-            className="border border-gray-300 rounded px-2 py-1 text-xs w-full"
-            placeholder="Nome do responsável"
-          />
-        </div>
-      </div>
-    </li>
-  ))}
-</ul>
+                        <div className="flex items-center gap-2 min-w-[200px]">
+                          <label className="text-xs text-gray-600 whitespace-nowrap"><strong>Responsável:</strong></label>
+                          <input
+                            type="text"
+                            value={item.responsavel || ''}
+                            onChange={(e) => handleResponsavelChange(platformId, item.id, e.target.value)}
+                            className="border border-gray-300 rounded px-2 py-1 text-xs w-full"
+                            placeholder="Nome do responsável"
+                          />
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
-                {note?.trim() && (
-                  <div className="mt-3 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-md text-gray-700 text-sm">
-                    <strong>Observações:</strong> {note}
-                  </div>
-                )}
+                <div className="mt-4">
+                  <label className="text-sm font-medium text-gray-700 block mb-1">
+                    Observações adicionais sobre {platform.name}
+                  </label>
+                  <textarea
+                    value={note || ''}
+                    onChange={(e) => dispatch(setObservation({ platformId, text: e.target.value }))}
+                    placeholder={`Observações adicionais sobre ${platform.name}`}
+                    className="w-full p-3 rounded-md border border-gray-300 shadow-sm text-sm text-gray-800 focus:ring-teal-500 focus:border-teal-500 transition"
+                    rows={3}
+                  />
+                </div>
               </section>
             );
           })}
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <button
+            onClick={handleBack}
+            className="rounded-xl px-6 py-3 font-semibold cursor-pointer bg-gradient-to-r from-stone-100 to-gray-200 text-gray-800 hover:from-stone-200 hover:to-gray-300 transition"
+          >
+            ← Voltar
+          </button>
           <button
             onClick={handleNewChecklist}
             className="rounded-xl px-6 py-3 font-semibold cursor-pointer bg-gradient-to-r from-stone-200 to-gray-300 text-gray-800 hover:from-stone-300 hover:to-gray-400 transition"
